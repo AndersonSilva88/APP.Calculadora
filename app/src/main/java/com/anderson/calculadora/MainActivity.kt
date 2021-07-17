@@ -2,6 +2,7 @@ package com.anderson.calculadora
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import kotlinx.android.synthetic.main.activity_main.*
 import net.objecthunter.exp4j.ExpressionBuilder
 import java.lang.Exception
 
@@ -21,8 +22,8 @@ class MainActivity : AppCompatActivity() {
         numero_seis.setOnClickListener{AcrescentarUmaExpessao("6", true)}
         numero_sete.setOnClickListener{AcrescentarUmaExpessao("7", true)}
         numero_oito.setOnClickListener{AcrescentarUmaExpessao("8", true)}
-        numero_novo.setOnClickListener{AcrescentarUmaExpessao("9", true)}
-        ponto.setOnClickListener{AcrescentarUmaExpessao(".", true)}
+        numero_nove.setOnClickListener{AcrescentarUmaExpessao("9", true)}
+        numero_ponto.setOnClickListener{AcrescentarUmaExpessao(".", true)}
 
         //operadores
 
@@ -44,7 +45,7 @@ class MainActivity : AppCompatActivity() {
 
             val string = expression.text.toString()
             if (string.isNotBlank()){
-                expression.text = string.substring(0,string.lenght-1)
+                expression.text = string.substring(0, string.length-1)
             }
             result.text = ""
         }
@@ -53,7 +54,7 @@ class MainActivity : AppCompatActivity() {
 
         igual.setOnClickListener{
             try {
-                val expressao = ExpressionBuilder(expressao.text.toString()).build()
+                val expressao = ExpressionBuilder(expression.text.toString()).build()
                 val resultado = expressao.evaluate()
                 val longResult = resultado.toString()
 
